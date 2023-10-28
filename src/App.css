@@ -3,10 +3,10 @@
   padding: 0%;
   box-sizing: border-box;
 }
- :root{
+:root {
   --purple-color: purple;
-  --black-color: black
- }
+  --black-color: black;
+}
 
 body {
   background-color: rgba(231, 236, 240, 0.815);
@@ -24,8 +24,7 @@ body {
   top: 0;
   z-index: 40;
 }
-.theme{
- 
+.theme {
   /* width: 100%;
   height: 100%;
   top: 0; */
@@ -35,7 +34,7 @@ body {
   top: 70px;
   position: absolute;
 }
-.switch{
+.switch {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -43,13 +42,13 @@ body {
   z-index: 10;
   border: 3px solid #78bc61;
 }
-.switch.black{
+.switch.black {
   background-color: black;
 }
-.switch.white{
+.switch.white {
   background-color: rgb(245, 238, 238);
 }
-.switch.purple{
+.switch.purple {
   background-color: rgba(177, 12, 177, 0.527);
 }
 .logo {
@@ -69,7 +68,7 @@ span {
   height: 40px;
   border-radius: 10px;
   padding-left: 10px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .nav .list {
   display: flex;
@@ -84,7 +83,6 @@ span {
   align-items: center;
   /* padding: 0px 10px; */
   background-color: rgba(231, 236, 240, 0.815);
- 
 }
 .addnotes {
   width: 100vw;
@@ -97,7 +95,7 @@ span {
   overflow: hidden;
 }
 .card {
-  width: 300px ;
+  width: 300px;
   height: 400px;
   border-radius: 20px;
   background-color: #78bc61;
@@ -119,18 +117,16 @@ span {
   z-index: -1;
   transform: rotate(20deg);
 }
-.card h3{
+.card h3 {
   font-size: 1.7rem;
   text-transform: capitalize;
- 
-  
 }
 .solid {
   transform: translateY(40px);
-  font-size: 50px;
+  font-size: 80px;
   position: absolute;
   top: 87%;
-  color:#40b61d;
+  color: #40b61d;
 }
 .spinner {
   position: absolute;
@@ -150,7 +146,6 @@ span {
   left: 10px;
   top: 1px;
   opacity: 0.5;
-  
 }
 .cancel {
   font-size: 0.1rem;
@@ -221,7 +216,7 @@ span {
   font-size: 0.8rem;
   font-weight: 600;
   padding-left: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .btn.s {
   color: white;
@@ -280,12 +275,11 @@ span {
   display: flex;
   height: max-content;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   gap: 10px;
   background-color: rgb(10, 10, 10);
   padding-bottom: 20px;
- 
 }
 .notes .savenotes {
   border: 1px solid rgba(128, 128, 128, 0.582);
@@ -293,7 +287,6 @@ span {
   height: 60px;
   border-radius: 10px;
   padding: 10px;
-  /* position: relative; */
   z-index: 10;
 }
 .savenotes h4 {
@@ -306,21 +299,22 @@ span {
   justify-content: space-between;
   user-select: none;
 }
-.flex{
+.flex {
   display: flex;
   justify-content: space-between;
 }
 
-.trash{
+.trash {
   color: rgba(211, 28, 28, 0.849);
   font-size: 1.3rem;
   cursor: pointer;
   z-index: 90;
-  background-color: ;
+  /* background-color: blue; */
   width: 30px;
   height: 100px;
   margin-top: -60px;
-  
+  /* position: fixed; */
+  z-index: 1000;
 }
 
 .savenotes textarea {
@@ -348,11 +342,110 @@ span {
 .profile .fa-user {
   font-size: 1.2rem;
   color: white;
-
 }
 
+.createnote {
+  background-color: black;
+  height: 100vh;
+  z-index: 10;
+}
+.toolbar {
+  height: 100%;
+  width: 100%;
+  padding-top: 15px;
+  position: relative;
+}
+.back {
+  width: 100%;
+  /* background-color: white; */
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.backward {
+  height: 50px;
+  width: 70px;
+  border-radius: 10px;
+  background-color: darkslategrey;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.N {
+  color: white;
+  font-size: 1.4rem;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: darkgreen;
+  font-weight: 700;
+}
+.textarea {
+  padding: 20px;
+  height: 100vh;
+  background-color: black;
+}
+.typetext {
+  height: 70px;
+  background-color: rgb(0, 0, 0);
+  outline: none;
+  border: none;
+  width: 100%;
+  color: white;
+  font-size: 2rem;
+}
+.typetext::placeholder {
+  font-size: 2rem;
+}
+.area {
+  resize: none;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  outline: none;
+  border: none;
+  height: 80vh;
+  font-size: 1.4rem;
+  color: white;
+}
+.area::placeholder {
+  font-size: 1.3rem;
+}
+.save {
+  border: none;
+  border-radius: 10px;
+  padding: 35px 15px;
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 
-
+.btnn {
+  position: fixed;
+  right: 10px;
+  bottom: 80px;
+  height: 85px;
+  display: none;
+}
+.backwardN{
+  height: 40px;
+  width: 70px;
+  border-radius: 10px;
+  background-color: darkslategrey;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 20px;
+}
 
 
 @media (max-width: 500px) {
@@ -363,7 +456,6 @@ span {
     width: 300px;
   }
 
-
   .list.show {
     display: flex;
     position: absolute !important;
@@ -371,23 +463,23 @@ span {
     right: 30px;
     background-color: #40b61d;
     padding: 10px;
-    
+
     border-radius: 10px;
   }
-  .app{
+  .app {
     overflow-x: hidden;
   }
 
-  .off{
+  .off {
     display: none;
   }
-  
+
   .list.show .link {
     color: rgb(255, 255, 255);
     font-size: 1.1rem;
     font-weight: 700;
     text-decoration: none;
-    transition: 0.30s ease-in-out all;
+    transition: 0.3s ease-in-out all;
     z-index: 100 !important;
   }
   .list.show .link:hover {
@@ -400,9 +492,8 @@ span {
     width: 100% !important;
     position: relative !important;
   }
-  .spinner{
+  .spinner {
     width: 100 !important;
-    
   }
   .quill {
     max-width: 90% !important;
@@ -436,7 +527,7 @@ span {
   .grid {
     padding-bottom: 20px;
     width: 100% !important;
-
+    margin-top: 10px;
   }
   .grid.show {
     height: 80%;
@@ -444,6 +535,7 @@ span {
   .savenotes {
     overflow: hidden !important;
     cursor: pointer;
+    position: relative;
   }
 
   .savenotes.opennote {
@@ -460,7 +552,7 @@ span {
   }
 
   .savenotes.opennote h4 {
-    transition: .30s ease-in-out all;
+    transition: 0.3s ease-in-out all;
     font-size: 1.3rem;
     font-weight: 600;
     text-transform: capitalize;
@@ -470,6 +562,9 @@ span {
     position: absolute;
     right: 10px;
     color: rgb(156, 156, 130);
+    /* font-size: 1rem; */
+    font-weight: 600;
+    text-transform: capitalize;
   }
   .savenotes.opennote textarea {
     color: rgb(216, 214, 212);
@@ -482,14 +577,18 @@ span {
   }
   .savenotes.opennote button {
     outline: none;
-    padding: 10px 25px;
+    /* padding: 10px 25px; */
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     border-radius: 5px;
     font-weight: 600;
-    position: absolute;
-    bottom: 3px;
-
+    position: fixed !important;
+    
+    transform: translate(120px, 400px);
+    height: 85px;
+    background-color: red;
+    height: 100px;
+    width: 80px;
   }
   .savenotes.opennote textarea.edit {
     color: rgba(223, 85, 85, 0.918);
@@ -497,6 +596,7 @@ span {
     padding: 5px;
     pointer-events: all !important;
   }
+
   .savenotes.opennote button.red {
     background-color: rgb(0, 255, 170);
     color: rgb(12, 11, 11);
@@ -505,7 +605,7 @@ span {
   .allnotes.opennote {
     display: none !important;
   }
-  .cancel{
+  .cancel {
     justify-content: center;
     align-items: center;
     display: flex;
@@ -515,10 +615,6 @@ span {
   }
 }
 
-
-
-
-
 @media (max-width: 360px) {
   /* .nav{
     display: none;
@@ -526,15 +622,15 @@ span {
   .nav .search input {
     width: 150px !important;
   }
-  .addnotes .quill{
+  .addnotes .quill {
     max-width: 400px !important;
     width: 300px !important;
     height: 30% !important;
   }
-  .title{
+  .title {
     width: 300px;
   }
-  .spinner::after{
+  .spinner::after {
     left: 8px;
     background-color: red !important;
   }
@@ -545,4 +641,3 @@ span {
     width: 400px !important;
   }
 } */
-

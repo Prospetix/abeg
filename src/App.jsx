@@ -9,7 +9,7 @@ import { AnimatePresence } from "framer-motion"
 import { colors } from "./State"
 // import { notes } from "./State"
 import ThemeSwitch from "./components/ThemeSwitch";
-
+import Createnote from "./components/Createnote";
 
 
 
@@ -29,15 +29,15 @@ export default function App() {
     <div className="app" style={{backgroundColor: colors.value[0]}}>
       <Navbar opensidebar={opensidebar} />
       <ThemeSwitch />
-      
-        
+  
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route index element={<Addnotes />} />
           <Route path="/notes" element={<Notes />} />
+          <Route path="/createnote" element={<Createnote />} />
         </Routes>
       </AnimatePresence>
-      <Toaster  position="top-right" richColors/>
+      <Toaster closeButton  position="top-right" richColors/>
       
       
     </div>

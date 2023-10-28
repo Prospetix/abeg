@@ -3,12 +3,22 @@ import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { colors, notes } from "../State";
 import { searchQuery } from "../State";
 import { MdDeleteForever } from "react-icons/md";
-
+import { Toaster, toast } from 'sonner'
 import React, { useEffect, useRef, useState } from "react";
-
+import { Link } from "react-router-dom";
+import {RiArrowGoBackLine} from "react-icons/ri"
 function Notes() {
   const deleteItem = (id) => {
-    notes.value = notes.value.filter((item) => item.id !== id);
+
+    toast('are you sure you want to remove?', {
+      action: {
+        label: 'remove',
+        Color: 'red',
+        onClick: () => notes.value = notes.value.filter((item) => item.id !== id)
+      },
+    })
+
+    
 
     console.log("yeeess");
   };
@@ -55,8 +65,13 @@ function Notes() {
       <h5 className="allnotes" style={{ color: colors.value[1] }}>
         all notes
       </h5>
+      <Link to={"/createnote"} className="backwardN">
+            {" "}
+            <RiArrowGoBackLine />{" "}
+      </Link>
 
       <div className={`${check.value ? "grid show" : "grid"}`}>
+      
         {notes.value
           .filter((item) => {
             if (searchQuery.value.trim().length < 1) {

@@ -6,51 +6,52 @@ import { signal, computed } from "@preact/signals-react";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "sonner";
 import { BiSolidCommentAdd } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 
 function Addnotes() {
-  const [istrue, setistrue] = useState(false);
-  const [value, setValue] = useState("");
+  // const [istrue, setistrue] = useState(false);
+  // const [value, setValue] = useState("");
 
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
 
-  function getTextValue(e) {
-    setName(e.target.value);
-  }
+  // function getTextValue(e) {
+  //   setName(e.target.value);
+  // }
 
-  const submit = () => {
-    const filteredText = value.substring(3, value.length - 4);
+  // const submit = () => {
+  //   const filteredText = value.substring(3, value.length - 4);
 
-    console.log(filteredText);
+  //   console.log(filteredText);
 
-    let day = new Date().getDate();
-    let month = new Date().getMonth();
-    let year = new Date().getFullYear();
+  //   let day = new Date().getDate();
+  //   let month = new Date().getMonth();
+  //   let year = new Date().getFullYear();
 
-    let currentDate = `${day}-${month}-${year}`;
+  //   let currentDate = `${day}-${month}-${year}`;
 
-    const newNote = {
-      title: name,
-      content: filteredText,
-      date: currentDate,
-      id: new Date().getTime(),
-    };
+  //   const newNote = {
+  //     title: name,
+  //     content: filteredText,
+  //     date: currentDate,
+  //     id: new Date().getTime(),
+  //   };
 
-    setValue("");
+  //   setValue("");
 
-    if (name !== "" && name.trim().length > 5) {
-      notes.value = [...notes.value, newNote];
+  //   if (name !== "" && name.trim().length > 5) {
+  //     notes.value = [...notes.value, newNote];
 
-      console.log("ya");
-      setName("");
+  //     console.log("ya");
+  //     setName("");
 
-      toast.success("your note has been added");
-    } else if (name.trim().length < 5) {
-      toast.error("make sure title is more than 5 letter long");
-    }
+  //     toast.success("your note has been added");
+  //   } else if (name.trim().length < 5) {
+  //     toast.error("make sure title is more than 5 letter long");
+  //   }
 
-    // console.log(notes.value);
-  };
+  //   // console.log(notes.value);
+  // };
 
   return (
     <motion.div
@@ -70,11 +71,12 @@ function Addnotes() {
         </h3>
       </motion.div>
 
-      <BiSolidCommentAdd
+     <Link to={"/createnote"}><BiSolidCommentAdd
         onClick={() => setistrue(true)}
         className="solid"
         style={{ color: colors.value[1] }}
-      />
+      /></Link>
+      
 
       {/* <motion.i
         style={{color: colors.value[1]}}
@@ -83,7 +85,7 @@ function Addnotes() {
         onClick={() => setistrue(true)}
         className="fa-solid fa-plus solid"
       /> */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {istrue && (
           <motion.div
             initial={{ scale: 0, opacity: 0.5 }}
@@ -111,8 +113,9 @@ function Addnotes() {
             </h4>
           </motion.div>
         )}
-      </AnimatePresence>
-      {istrue && (
+      </AnimatePresence> */}
+
+      {/* {istrue && (
         <ReactQuill
           className="quill"
          
@@ -142,7 +145,7 @@ function Addnotes() {
           type="text"
           placeholder="YOUR TITLE HERE"
         />
-      )}
+      )} */}
 
       {/* {istrue &&
         <h3 className="hy">
