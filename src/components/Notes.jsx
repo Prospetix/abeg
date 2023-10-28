@@ -5,8 +5,11 @@ import { searchQuery } from "../State";
 import { MdDeleteForever } from "react-icons/md";
 import { Toaster, toast } from 'sonner'
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {RiArrowGoBackLine} from "react-icons/ri"
+
+
+
 function Notes() {
   const deleteItem = (id) => {
 
@@ -54,21 +57,26 @@ function Notes() {
     );
   };
 
+  const naviate = useNavigate()
+  
+  const goback = () => {
+    naviate(-1)
+  }
   return (
     <motion.div
       initial={{ x: -400, opacity: 0 }}
       animate={{ x: 1, opacity: 1 }}
       exit={{ x: -450 }}
-      transition={{ type: "spring", stiffness: 200, ease: [0, 2.3, 5, 0.6] }}
+      transition={{ type: "spring", stiffness: 200 }}
       className="notes"
     >
       <h5 className="allnotes" style={{ color: colors.value[1] }}>
         all notes
       </h5>
-      <Link to={"/createnote"} className="backwardN">
+      <button onClick={goback} className="backwardN">
             {" "}
             <RiArrowGoBackLine />{" "}
-      </Link>
+      </button>
 
       <div className={`${check.value ? "grid show" : "grid"}`}>
       

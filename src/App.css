@@ -349,8 +349,20 @@ span {
   height: 100vh;
   z-index: 10;
   margin-top: 10px;
+  position: relative;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
+  padding-top: 20px;
+}
+.createnote::after{
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 10px;
+  background-color: grey;
+  top: 6px;
+  border-radius: 20px;
+  left: 24%;
 }
 .toolbar {
   height: 100%;
@@ -490,6 +502,7 @@ span {
   }
   .solid {
     top: 80%;
+    left: 43%;
   }
   .addnotes {
     width: 100% !important;
