@@ -1,0 +1,547 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+ :root{
+  --purple-color: purple;
+  --black-color: black
+ }
+
+body {
+  background-color: rgba(231, 236, 240, 0.815);
+}
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  height: 55px;
+  padding: 0 12px;
+  border-bottom: 2px solid #78bc61;
+  background-color: rgba(231, 236, 240, 0.815);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+.theme{
+ 
+  /* width: 100%;
+  height: 100%;
+  top: 0; */
+  right: 15px;
+  display: flex;
+  gap: 6px;
+  top: 70px;
+  position: absolute;
+}
+.switch{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  border: 3px solid #78bc61;
+}
+.switch.black{
+  background-color: black;
+}
+.switch.white{
+  background-color: rgb(245, 238, 238);
+}
+.switch.purple{
+  background-color: rgba(177, 12, 177, 0.527);
+}
+.logo {
+  font-size: 1.4rem;
+}
+span {
+  color: #78bc61;
+}
+/* .search{
+    flex-grow: 2;
+} */
+.search input {
+  width: 100%;
+  /* flex-grow: 1; */
+  flex-shrink: 0;
+  border: 1px solid rgba(99, 87, 87, 0.541);
+  height: 40px;
+  border-radius: 10px;
+  padding-left: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.nav .list {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.app {
+  height: 100vh;
+  display: flex;
+  padding-bottom: -100px;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 0px 10px; */
+  background-color: rgba(231, 236, 240, 0.815);
+ 
+}
+.addnotes {
+  width: 100vw;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.card {
+  width: 300px ;
+  height: 400px;
+  border-radius: 20px;
+  background-color: #78bc61;
+  /* border: 1px solid rgba(255, 188, 164, 0.199); */
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: whitesmoke;
+  margin-top: -50px;
+}
+
+.card::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #3cff00;
+  content: "";
+  border-radius: inherit;
+  z-index: -1;
+  transform: rotate(20deg);
+}
+.card h3{
+  font-size: 2rem;
+  text-transform: capitalize;
+  
+}
+.solid {
+  transform: translateY(40px);
+  font-size: 50px;
+  position: absolute;
+  top: 87%;
+  color:#40b61d;
+}
+.spinner {
+  position: absolute;
+  background-color: black;
+  width: 10%;
+  height: 10%;
+  border-radius: 50%;
+  z-index: 20;
+}
+.spinner::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 1px;
+  background-color: grey;
+  border-radius: 20px;
+  left: 10px;
+  top: 1px;
+  opacity: 0.5;
+  
+}
+.cancel {
+  font-size: 0.1rem;
+  position: absolute;
+  top: 2px;
+  height: 3px;
+  width: 3px;
+  color: white;
+  right: 1px;
+  background-color: #78bc61;
+  display: flex;
+  padding: 1px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  scale: 1.1;
+  cursor: pointer;
+  opacity: 0;
+  animation: wait 1s linear;
+  animation-delay: 1s;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+}
+.link {
+  list-style: none;
+  color: rgb(4, 49, 4);
+  z-index: 69 !important;
+}
+.link:hover {
+  list-style: none;
+  color: green;
+  text-decoration: none;
+}
+.quill {
+  position: absolute;
+  font-size: 2rem;
+  color: white;
+  height: 300px;
+  width: 400px;
+  top: 90px;
+  opacity: 0;
+  animation: wait 1s linear;
+  animation-delay: 1s;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+  z-index: 20;
+}
+.title {
+  position: absolute;
+  opacity: 0;
+  animation: wait 1s linear;
+  animation-delay: 1s;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+  top: 40px;
+  border: 1px solid grey;
+  outline: none;
+  width: 400px;
+  height: 40px;
+  border-radius: 10px;
+  padding-left: 10px;
+  background-color: transparent;
+  color: rgb(223, 217, 217);
+  z-index: 20;
+}
+.title::placeholder {
+  color: rgba(255, 255, 255, 0.363);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding-left: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn.s {
+  color: white;
+  background-color: green;
+  position: absolute;
+
+  outline: none;
+  border: none;
+  padding: 10px 15px;
+  bottom: 30px;
+  opacity: 0;
+  font-weight: 600;
+  border-radius: 5px;
+  animation: wait 2s linear;
+  animation-delay: 2s;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+  z-index: 20;
+}
+@keyframes wait {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.s:hover {
+  background-color: #40b61d;
+}
+.notes {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(10, 10, 10);
+  top: 0px;
+  position: relative;
+  border-radius: 20px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: grab;
+  left: -1px;
+}
+.notes h5 {
+  color: rgb(223, 214, 214);
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+.notes .grid {
+  width: inherit;
+  display: flex;
+  height: max-content;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(10, 10, 10);
+  padding-bottom: 20px;
+ 
+}
+.notes .savenotes {
+  border: 1px solid rgba(128, 128, 128, 0.582);
+  width: 90%;
+  height: 60px;
+  border-radius: 10px;
+  padding: 10px;
+  /* position: relative; */
+  z-index: 10;
+}
+.savenotes h4 {
+  color: grey;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.trash{
+  color: rgba(211, 28, 28, 0.849);
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 90;
+  background-color: ;
+  width: 30px;
+  height: 100px;
+  margin-top: -60px;
+  
+}
+
+.savenotes textarea {
+  background-color: black;
+  color: gray;
+  border: none;
+  pointer-events: none;
+}
+/* .hy{
+    position: absolute;
+    background-color: white;
+    top: 20px;
+} */
+
+.profile {
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.profile .fa-user {
+  font-size: 1.2rem;
+  color: white;
+
+}
+
+
+
+
+
+@media (max-width: 500px) {
+  .nav .list {
+    display: none;
+  }
+  .card {
+    width: 300px;
+  }
+
+
+  .list.show {
+    display: flex;
+    position: absolute !important;
+    top: 60px;
+    right: 30px;
+    background-color: #40b61d;
+    padding: 10px;
+    
+    border-radius: 10px;
+  }
+  .app{
+    overflow-x: hidden;
+  }
+
+  .off{
+    display: none;
+  }
+  
+  .list.show .link {
+    color: rgb(255, 255, 255);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.30s ease-in-out all;
+    z-index: 100 !important;
+  }
+  .list.show .link:hover {
+    color: rgb(47, 49, 47);
+  }
+  .solid {
+    top: 80%;
+  }
+  .addnotes {
+    width: 100% !important;
+    position: relative !important;
+  }
+  .spinner{
+    width: 100 !important;
+    
+  }
+  .quill {
+    max-width: 90% !important;
+    width: 90%;
+    top: 26%;
+    height: 250px;
+  }
+  .title {
+    width: 90%;
+    top: 15%;
+  }
+  .cancel {
+    right: 2px;
+    top: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile {
+    display: flex;
+  }
+  .notes {
+    width: 100%;
+    margin-top: 10px;
+    padding-bottom: 10px;
+  }
+  .allnotes {
+    position: sticky;
+    top: 50px;
+  }
+  .grid {
+    padding-bottom: 20px;
+    width: 100% !important;
+
+  }
+  .grid.show {
+    height: 80%;
+  }
+  .savenotes {
+    overflow: hidden !important;
+    cursor: pointer;
+  }
+
+  .savenotes.opennote {
+    background-color: rgb(14, 15, 15);
+    z-index: 12;
+    height: 90%;
+    top: 10px;
+    position: absolute;
+    overflow: hidden !important;
+    display: flex;
+    width: 92%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .savenotes.opennote h4 {
+    transition: .30s ease-in-out all;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    user-select: none;
+  }
+  .savenotes.opennote h6 {
+    position: absolute;
+    right: 10px;
+    color: rgb(156, 156, 130);
+  }
+  .savenotes.opennote textarea {
+    color: rgb(216, 214, 212);
+    width: 97%;
+    padding: 5px 10px 0px 0px;
+    background-color: inherit;
+    resize: none;
+    height: 80%;
+    pointer-events: none;
+  }
+  .savenotes.opennote button {
+    outline: none;
+    padding: 10px 25px;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    position: absolute;
+    bottom: 3px;
+
+  }
+  .savenotes.opennote textarea.edit {
+    color: rgba(223, 85, 85, 0.918);
+    width: 100%;
+    padding: 5px;
+    pointer-events: all !important;
+  }
+  .savenotes.opennote button.red {
+    background-color: rgb(0, 255, 170);
+    color: rgb(12, 11, 11);
+    font-weight: 600;
+  }
+  .allnotes.opennote {
+    display: none !important;
+  }
+  .cancel{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    line-height: 3;
+    scale: 1.2;
+    padding-right: 1.1px;
+  }
+}
+
+
+
+
+
+@media (max-width: 360px) {
+  /* .nav{
+    display: none;
+  } */
+  .nav .search input {
+    width: 150px !important;
+  }
+  .addnotes .quill{
+    max-width: 400px !important;
+    width: 300px !important;
+    height: 30% !important;
+  }
+  .title{
+    width: 300px;
+  }
+  .spinner::after{
+    left: 8px;
+    background-color: red !important;
+  }
+}
+
+/* @media (min-width: 600px) {
+  .quill{
+    width: 400px !important;
+  }
+} */
+
