@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { toast } from "sonner";
@@ -7,6 +7,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 function createNote() {
+
   const [istrue, setistrue] = useState(false);
   const [value, setValue] = useState("");
 
@@ -69,6 +70,10 @@ function createNote() {
     // console.log(notes.value);
   };
 
+  useEffect(()=> {
+    localStorage.setItem('notes', JSON.stringify(notes.value))
+  },[notes.value])
+
   return (
   
       <motion.div
@@ -112,7 +117,7 @@ function createNote() {
           <button
             style={{
               backgroundColor: colors.value[1],
-              color: `${colors.value[1] === "#F5B841" ? "black" : ""}`,
+              color: `${colors.value[1] === "#F5B841" ? "white" : "black"}`,
             }}
             className="save"
             onClick={submit}

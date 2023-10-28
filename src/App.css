@@ -358,7 +358,7 @@ span {
   position: absolute;
   content: "";
   width: 50%;
-  height: 10px;
+  height: 6px;
   background-color: grey;
   top: 6px;
   border-radius: 20px;
@@ -461,6 +461,16 @@ span {
   position: absolute;
   right: 20px;
 }
+.hidden{
+  display: none;
+}
+.online{
+  display: block;
+}
+
+
+
+
 
 
 @media (max-width: 500px) {
@@ -599,9 +609,8 @@ span {
     border-radius: 5px;
     font-weight: 600;
     position: fixed !important;
+    transform: translate(140%, 430%);
     
-    transform: translate(120px, 400px);
-    height: 85px;
     background-color: red;
     height: 100px;
     width: 80px;
@@ -616,7 +625,6 @@ span {
   .savenotes.opennote button.red {
     background-color: rgb(0, 255, 170);
     color: rgb(12, 11, 11);
-    font-weight: 600;
   }
   .allnotes.opennote {
     display: none !important;
