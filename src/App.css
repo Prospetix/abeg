@@ -424,11 +424,11 @@ span {
   outline: none;
   border: none;
   height: 80vh;
-  font-size: 1rem;
+  font-size: 20px;
   color: white;
 }
 .area::placeholder {
-  font-size: 1rem;
+  font-size: 20px;
 }
 .save {
   border: none;
