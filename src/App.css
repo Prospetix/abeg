@@ -428,7 +428,7 @@ span {
   color: white;
 }
 .area::placeholder {
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 .save {
   border: none;
