@@ -348,6 +348,9 @@ span {
   background-color: black;
   height: 100vh;
   z-index: 10;
+  margin-top: 10px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
 .toolbar {
   height: 100%;
