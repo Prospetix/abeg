@@ -424,7 +424,7 @@ span {
   outline: none;
   border: none;
   height: 80vh;
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: white;
 }
 .area::placeholder {
@@ -545,23 +545,33 @@ span {
     width: 100%;
     margin-top: 10px;
     padding-bottom: 10px;
+    user-select: none;
+    outline: none;
   }
   .allnotes {
     position: sticky;
     top: 50px;
+    outline: none;
+    user-select: none;
   }
   .grid {
     padding-bottom: 20px;
     width: 100% !important;
     margin-top: 10px;
+    user-select: none;
+    outline: none;
   }
   .grid.show {
     height: 80%;
+    user-select: none;
+    outline: none;
   }
   .savenotes {
     overflow: hidden !important;
     cursor: pointer;
     position: relative;
+    user-select: none;
+    outline: none;
   }
 
   .savenotes.opennote {
@@ -575,6 +585,8 @@ span {
     width: 92%;
     flex-direction: column;
     align-items: center;
+    user-select: none;
+    outline: none;
   }
 
   .savenotes.opennote h4 {
@@ -583,6 +595,7 @@ span {
     font-weight: 600;
     text-transform: capitalize;
     user-select: none;
+    outline: none;
   }
   .savenotes.opennote h6 {
     position: absolute;
@@ -591,6 +604,8 @@ span {
     /* font-size: 1rem; */
     font-weight: 600;
     text-transform: capitalize;
+    user-select: none;
+    outline: none;
   }
   .savenotes.opennote textarea {
     color: rgb(216, 214, 212);
@@ -599,7 +614,9 @@ span {
     background-color: inherit;
     resize: none;
     height: 80%;
+    user-select: none;
     pointer-events: none;
+    outline: none;
   }
   .savenotes.opennote button {
     outline: none;

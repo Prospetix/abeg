@@ -55,14 +55,22 @@ function createNote() {
     // setValue("");
     // setName("");
 
-    if (name !== "" && name.trim().length > 5) {
-      notes.value = [...notes.value, newNote];
+    if (name !== '' && name.trim().length >= 5 ) {
 
-      console.log("ya");
-      setName("");
-      setValue("");
+      if (name.trim().length >= 10){
+        
+        toast.error("make sure title is not more than 10 letters");
+        
+      }else{
+        notes.value = [...notes.value, newNote];
+        console.log("ya");
+        setName("");
+        setValue("");
 
-      toast.success("your note has been added");
+        toast.success("your note has been added");
+      }
+
+      
     } else if (name.trim().length < 5) {
       toast.error("make sure title is more than 5 letters");
     }

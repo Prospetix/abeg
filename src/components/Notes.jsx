@@ -116,7 +116,7 @@ function Notes() {
             .map((item) => (
               <AnimatePresence key={item.id}>
                 <motion.div
-                  style={{ border: `1px solid ${colors.value[1]}` }}
+                  // style={{ border: `1px solid ${colors.value[1]}` }}
                   onClick={() => expand(item.id)}
                   onDoubleClick={() => close(item.id)}
                   whileTap={{ scale: 1.1 }}
