@@ -1,36 +1,38 @@
 import { computed, effect, signal, useSignal } from "@preact/signals-react";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
-import { colors, notes} from "../State";
+import { colors, notes } from "../State";
 import { searchQuery } from "../State";
 import { MdDeleteForever } from "react-icons/md";
 import { Toaster, toast } from "sonner";
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RiArrowGoBackLine } from "react-icons/ri";
+import { MdArrowBackIosNew } from "react-icons/md";
+
+
 
 function Notes() {
-  
   // useEffect(()=> {
   //   const check = localStorage.getItem('notes') === null ? notes.value : JSON.parse(localStorage.getItem("notes"))
   //   // notes.value = [...check]
   //   console.log(check);
   // },[])
 
-  const [notFound, setNotfound] = useState(null)
+  const [notFound, setNotfound] = useState(null);
 
   const grid = useRef();
 
-  useEffect(()=> {
-    setNotfound(grid.current ? grid.current.innerText : null )
-    
-  },[searchQuery.value])
+  useEffect(() => {
+    setNotfound(grid.current ? grid.current.innerText : null);
+  }, [searchQuery.value]);
 
   console.log(notFound);
 
-
   console.log(grid);
 
-  const deleteItem = (id) => {
+  const deleteItem = (id,e) => {
+    e.stopPropagation()
+
     toast("are you sure you want to remove?", {
       action: {
         label: "remove",
@@ -53,16 +55,22 @@ function Notes() {
     );
   }
 
-  const expand = (id) => {
+  const expand = (id,e) => {
+
+    e.stopPropagation()
     notes.value = notes.value.map((item) =>
       item.id === id ? { ...item, expand: true } : item
     );
   };
 
-  const close = (id) => {
+  const close = (id,e) => {
+     e.stopPropagation()
+
     notes.value = notes.value.map((item) =>
       item.id === id ? { ...item, expand: false } : item
     );
+    
+    console.log('oooooo');
   };
 
   const edit = (id) => {
@@ -78,7 +86,6 @@ function Notes() {
   };
 
   return (
-
     <motion.div
       initial={{ x: -400, opacity: 0 }}
       animate={{ x: 1, opacity: 1 }}
@@ -102,8 +109,10 @@ function Notes() {
         <RiArrowGoBackLine />{" "}
       </button>
 
-      {notes.value.length > 0 ? (
+       <h3 style={{color:"white", position:"absolute", left:"30px", top:"20px"}}>{notes.value.length}</h3>
+      
 
+      {notes.value.length > 0 ? (
         <div ref={grid} className={`${check.value ? "grid show" : "grid"}`}>
           {notes.value
             .filter((item) => {
@@ -117,8 +126,7 @@ function Notes() {
               <AnimatePresence key={item.id}>
                 <motion.div
                   // style={{ border: `1px solid ${colors.value[1]}` }}
-                  onClick={() => expand(item.id)}
-                  onDoubleClick={() => close(item.id)}
+                  onClick={(e) => expand(item.id,e)}
                   whileTap={{ scale: 1.1 }}
                   transition={{
                     type: "spring",
@@ -131,6 +139,11 @@ function Notes() {
                   }`}
                   key={item.id}
                 >
+                    <MdArrowBackIosNew
+                      onClick={(e) => close(item.id,e)}
+                      style={{ display: "none" }}
+                      className={`${item.expand ? "arrowbk" : ""}`}
+                    />
                   <motion.h4 style={{ color: colors.value[1] }} key={item.id}>
                     {item.title}
 
@@ -138,9 +151,9 @@ function Notes() {
                       className={`${
                         item.expand ? "off" : "fa-solid fa-trash-can trash"
                       }`}
-                      onClick={() => deleteItem(item.id)}
+                      onClick={(e) => deleteItem(item.id,e)}
                     />
-
+                   
                     {/* <i
                     className={`${item.expand
                       ? "off"
@@ -176,7 +189,10 @@ function Notes() {
         <h2 style={{ color: "grey", margin: "auto" }}>no notes found</h2>
       )}
 
-      <h2 className={`${notFound === "" ? "online":"hidden"}`} style={{ color: "grey", margin: "auto", zIndex: 5 }}>
+      <h2
+        className={`${notFound === "" ? "online" : "hidden"}`}
+        style={{ color: "grey", margin: "auto", zIndex: 5 }}
+      >
         no notes found
       </h2>
     </motion.div>

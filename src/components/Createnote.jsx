@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { colors, notes } from "./../State";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { CgNotes } from "react-icons/cg";
 
 function createNote() {
 
@@ -96,7 +97,8 @@ function createNote() {
         <div className="toolbar">
           <div className="back">
             <Link to={"/notes"} className="N">
-              All Notes
+            <CgNotes style={{fontSize:"1.7rem"}}/> 
+              {/* All Notes */}
             </Link>
             <Link to={"/"} className="backward">
               {" "}
