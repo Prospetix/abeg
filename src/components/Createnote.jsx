@@ -58,9 +58,9 @@ function createNote() {
 
     if (name !== '' && name.trim().length >= 5 ) {
 
-      if (name.trim().length >= 10){
+      if (name.trim().length >= 20){
         
-        toast.error("make sure title is not more than 10 letters");
+        toast.error("make sure title is not more than 20 letters");
         
       }else{
         notes.value = [...notes.value, newNote];
