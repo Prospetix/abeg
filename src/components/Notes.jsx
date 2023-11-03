@@ -144,7 +144,7 @@ function Notes() {
                       style={{ display: "none" }}
                       className={`${item.expand ? "arrowbk" : ""}`}
                     />
-                  <motion.h4 style={{ color: colors.value[1] }} key={item.id}>
+                  <h4 style={{ color: colors.value[1] }} key={item.id}>
                     {item.title}
 
                     <MdDeleteForever
@@ -161,7 +161,7 @@ function Notes() {
                       
                       onClick={()=> deleteItem(item.id)}
                   /> */}
-                  </motion.h4>
+                  </h4>
 
                   <textarea
                     rows=""
