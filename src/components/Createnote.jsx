@@ -91,7 +91,7 @@ function createNote() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ type: "spring",duration:1, ease: "linear", stiffness: 200 }}
         exit={{
-          y: 500
+          y: 600
         }}
       >
         <div className="toolbar">
