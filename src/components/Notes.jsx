@@ -123,7 +123,7 @@ function Notes() {
               }
             })
             .map((item) => (
-              <AnimatePresence key={item.id}>
+             
                 <motion.div
                   // style={{ border: `1px solid ${colors.value[1]}` }}
                   onClick={(e) => expand(item.id,e)}
@@ -182,7 +182,7 @@ function Notes() {
                     onClick={() => edit(item.id)}
                   >{`${item.edit ? "save" : "edit"}`}</button>
                 </motion.div>
-              </AnimatePresence>
+       
             ))}
         </div>
       ) : (
