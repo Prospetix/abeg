@@ -486,6 +486,22 @@ span {
  
 }
 
+.blink {
+  background-color: red;
+  animation: blin 3s infinite ease-in-out alternate;
+  border: none;
+  color: white !important;
+}
+@keyframes blin {
+  0%{
+    background-color: red;
+  }
+  100%{
+    background-color: rgba(238, 102, 109, 0.637);
+  }
+}
+
+
 
 
 

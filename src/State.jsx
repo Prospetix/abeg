@@ -42,7 +42,7 @@ export const notes = signal([
 
 const check = localStorage.getItem('notes') === null ? notes.value : JSON.parse(localStorage.getItem("notes"))
     notes.value = [...check]
-    console.log(check);
+    // console.log(check);
     
 
 

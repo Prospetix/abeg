@@ -8,7 +8,6 @@ import { toast } from "sonner";
 import { BiSolidCommentAdd } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-
 function Addnotes() {
   // const [istrue, setistrue] = useState(false);
   // const [value, setValue] = useState("");
@@ -71,14 +70,12 @@ function Addnotes() {
         </h3>
       </motion.div>
 
-     <Link to={"/createnote"}><BiSolidCommentAdd
-        onClick={() => setistrue(true)}
-        className="solid"
-        style={{ color: colors.value[1] }}
-      /></Link>
-      
-
-     
+      <Link to={"/createnote"}>
+        <BiSolidCommentAdd
+          className="solid"
+          style={{ color: colors.value[1] }}
+        />
+      </Link>
     </motion.div>
   );
 }

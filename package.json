@@ -18,6 +18,8 @@
     "react-quill": "^2.0.0",
     "react-router": "^6.17.0",
     "react-router-dom": "^6.17.0",
+    "react-speech-recognition": "^3.10.0",
+    "regenerator-runtime": "^0.14.0",
     "sonner": "^1.0.3"
   },
   "devDependencies": {
